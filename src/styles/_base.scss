@@ -1,0 +1,225 @@
+@import 'src/styles/core/_variables.scss';
+
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+
+    &:active,
+    &:hover,
+    &:focus {
+        outline: 0;
+    }
+}
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    font-size: 100%;
+    vertical-align: baseline;
+}
+
+html {
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    background-color: var(--bg-color);
+    @include font-source-sans(var(--body-font-size) !important, var(--text-on-primary) !important, var(--weight-regular) !important, calc(var(--body-font-size) + 10px));
+}
+
+strong {
+    font-weight: var(--weight-bold);
+}
+
+input:disabled,
+textarea:disabled,
+select:disabled {
+    cursor: no-drop;
+}
+
+input,
+input[type="password"],
+input[type="search"],
+input[type="number"],
+input[type="tel"],
+select,
+textarea {
+    color: var(--text-on-primary);
+}
+
+input,
+select {
+    @include width-height(100%, 55px);
+}
+
+input,
+textarea {
+    border: none;
+    background-color: transparent;
+    padding: 15px;
+}
+
+textarea {
+    @include width-height(100%, 150px);
+}
+
+.container {
+    margin: 0 auto;
+    max-width: 1400px;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    padding: 0 !important;
+}
+
+.clearfix,
+.container,
+.rowWrap {
+    @include clearfix()
+}
+
+img {
+    max-width: 100%;
+    vertical-align: top;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+}
+
+::-webkit-input-placeholder {
+    /* Chrome/Opera/Safari */
+    font-size: var(--body-font-size);
+    color: var(--disable-color);
+}
+
+::-moz-placeholder {
+    /* Firefox 19+ */
+    font-size: var(--body-font-size);
+    color: var(--disable-color);
+}
+
+:-ms-input-placeholder {
+    /* IE 10+ */
+    font-size: var(--body-font-size);
+    color: var(--disable-color);
+}
+
+:-moz-placeholder {
+    /* Firefox 18- */
+    font-size: var(--body-font-size);
+    color: var(--disable-color);
+}
+
+input:disabled::-webkit-input-placeholder {
+    /* WebKit browsers */
+    color: var(--disable-color);
+}
+
+input:disabled:-moz-placeholder {
+    /* Mozilla Firefox 4 to 18 */
+    color: var(--disable-color);
+}
+
+input:disabled::-moz-placeholder {
+    /* Mozilla Firefox 19+ */
+    color: var(--disable-color);
+}
+
+input:disabled:-ms-input-placeholder {
+    /* Internet Explorer 10+ */
+    color: var(--disable-color);
+}
+
+.listing-row__search {
+    .ezee-button.ezee-button--primary.ezee-button--transparent.ezee-button__image {
+        margin: -4px 14px 0px 0px;
+    }
+}

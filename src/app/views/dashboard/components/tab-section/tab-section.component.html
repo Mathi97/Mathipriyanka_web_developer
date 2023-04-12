@@ -1,0 +1,9 @@
+<ul class="flex justify-between items-center pl-0 border-b-[1px] border-[#d3d3d329]">
+    <li *ngFor="let tab of weekDays"
+        class="text-center leading-4 font-semibold cursor-pointer uppercase hover:opacity-50 pb-2"
+        [ngClass]="{'active':tab?.day===selectedDate}" (click)="handleTab(tab)">
+        {{tab?.day}}
+        <!-- <p class="text-xs font-normal "> {{tab?.day}}</p> -->
+
+    </li>
+</ul>

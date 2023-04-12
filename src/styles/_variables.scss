@@ -1,0 +1,26 @@
+:root {
+    --html-font-size: 100%;
+    --font-family: "DM Sans", sans-serif;
+    --fluid-width: var(--html-font-size);
+    --body-font-size: 14px;
+    --primary-color: #0072fd;
+    --secondary-color: #fd8b00;
+    --warning-color: #ffcc41;
+    --error-color: #ff3434;
+    --success-color: #21a67a;
+    --bg-color: #f6f6f6;
+    --white-color: #ffffff;
+    --light-blue-color: #e2f2ff;
+    --text-on-primary: #333860;
+    --text-on-secondary: #495281;
+    --text-on-teritary: #a0a7be;
+    --disable-color: #c5c9d9;
+    --border-color: #dadada;
+    --progress-bar: #b9dffe;
+    --strip-bg: #e2f2ff;
+    --filter-bg: #e8eaef;
+    --weight-regular: 400;
+    --weight-medium: 500;
+    --weight-semi-bold: 500;
+    --weight-bold: 700;
+}

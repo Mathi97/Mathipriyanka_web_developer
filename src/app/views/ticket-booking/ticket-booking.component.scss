@@ -1,0 +1,85 @@
+@import 'src/styles/mixins';
+
+
+/* Author: Uzair Ahmed */
+/* CSS Helpers */
+
+
+
+.marginTB10 {
+    margin: 10px 0px;
+}
+
+
+/* End CSS Helpers */
+
+.innerContainer {
+    color: black;
+    text-align: center;
+}
+
+.movie {
+    margin: -10px -5px 10px -5px;
+    height: 70px;
+    background: hsla(216, 81%, 53%, 0.65);
+}
+
+.movieDetails {
+    font-size: 15px;
+    margin-top: -3px;
+}
+
+.movieTitle {
+    font-size: 20px;
+    padding-top: 10px;
+    margin-top: -3px;
+}
+
+.legend {
+    font-size: 14px;
+}
+
+.legend>.padding-left {
+    padding-left: 15px;
+}
+
+.screen {
+    // width: -webkit-fill-available;
+    background: rgb(2, 0, 36);
+    background: linear-gradient(90deg, rgba(2, 0, 36, 1) 33%, rgba(105, 105, 121, 0.8575805322128851) 76%, rgba(3, 78, 93, 0.6082808123249299) 86%, rgba(3, 78, 93, 0.6082808123249299) 94%);
+    border-radius: 15px;
+    margin: -5px 50px 10px;
+    box-shadow: 0px 3px 6px black;
+
+    img {
+        margin: 0 auto;
+    }
+}
+
+.reservedSeat {
+    color: #ce4844;
+    font-size: 20px;
+}
+
+.selectedSeat {
+    color: #5cb85c;
+    font-size: 20px;
+}
+
+.freeSeat {
+    color: black;
+    font-size: 20px;
+}
+
+.booking {
+
+    @include width-height(100%, 100vh);
+
+    &__wrapper {
+        // height: calc(100vh - 300px);
+        // width: calc(100vw - 300px);
+        // // width: -webkit-fill-available;
+        // background: rgb(2, 0, 36);
+        // background: linear-gradient(90deg, rgba(2, 0, 36, 1) 33%, rgba(105, 105, 121, 0.8575805322128851) 76%, rgba(3, 78, 93, 0.6082808123249299) 86%, rgba(3, 78, 93, 0.6082808123249299) 94%);
+    }
+}
