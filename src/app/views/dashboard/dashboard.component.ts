@@ -67,19 +67,19 @@ export class DashboardComponent implements OnInit {
     //         }
     //       })
     //     })
-
-
-
-
-
-
-
-
     //   }))
     // })
 
 
+    this.theatreDetails.map(el => {
 
+      el?.booked_seats?.length > 0 && el?.booked_seats.map((ele: any) => {
+        // const allotedTiming = Object.keys(elm).filter(ele => ele?.includes('time'));
+        if (this._dataService.dateInfo?.date === ele?.date) {
+
+        }
+      })
+    })
   }
 
   private getDateList = () => {
@@ -108,13 +108,13 @@ export class DashboardComponent implements OnInit {
       this.handleTimings(elm);
     });
     this.theatreDetails = theatreDetails;
+    this._dataService.theatreDetails = this.theatreDetails;
   }
 
   private handleTimings = (elm: any) => {
     elm?.available_movies?.map((el: any) => {
       if (elm?.show1_movie === el) {
         this.showDetails.show1.push({ movie: elm?.show1_movie, timings: elm?.show1_time });
-
         elm[el] = this.showDetails.show1;
       }
       if (elm?.show2_movie === el) {

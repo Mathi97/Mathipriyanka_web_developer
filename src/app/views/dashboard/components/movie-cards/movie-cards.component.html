@@ -22,7 +22,6 @@
                     <ng-container *ngFor="let theatre of theatreDetails">
                         <div class="theatre flex flex-wrap items-center"
                             *ngIf="theatre?.available_movies?.includes(movie?.movie_name)">
-                            <!-- <img class="w-28 h-28" [src]="theatre?.thumbnail_url" alt=""> -->
                             <a class="mr-4 mb-0 text-3xl font-semibold" href="{{theatre?.website}}">
                                 {{theatre?.theatre_name}}</a>
                             <div class="flex items-center">
@@ -44,25 +43,22 @@
                                 </div>
                             </ng-container>
                         </div>
-                        <img [src]="movie?.thumbnail_url" class="absolute right-[-100px] bottom-0 w-[150px] h-[150px]"
-                            id="img" alt="">
                     </ng-container>
+                    <img [src]="movie?.thumbnail_url" class="absolute right-[-100px] bottom-0 w-[150px] h-[150px]"
+                        id="img" alt="">
                 </div>
                 <div class="picsum-img-wrapper flex justify-start rounded-md">
                     <img [src]="movie?.thumbnail_url" class="rounded-l-lg" alt="Random first slide" />
                     <!-- <h3>In Cinemas</h3> -->
                 </div>
-                <div class="picsum-img absolute top-[25%] left-[8%]">
+                <div
+                    class="picsum-img absolute top-0 left-0 flex items-center justify-center w-[33%] h-[calc(100vh-100px)]">
                     <img [src]="movie?.thumbnail_url"
                         class="rounded-lg max-w-[220px] min-w-[220px] max-h-[300px] min-h-[300px]"
                         alt="Random first slide" />
                 </div>
-
-
             </ng-template>
         </ng-container>
 
     </ngb-carousel>
 </div>
-
-<!-- [style.background]="'center / cover no-repeat url(movie.thumbnail_url)'" -->

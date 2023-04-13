@@ -21,7 +21,7 @@
 
             <div class="test">
                 <!-- Generate the seating grid -->
-                <div *ngFor="let row of rows" style="margin-top:2%">
+                <div *ngFor="let row of rows" style="margin-top:15px">
                     <span class="font-semibold text-text_on_primary text-xl">{{row}}</span>
                     <span class="pr-[3px] " *ngFor="let col of cols;let i=index" (click)="seatClicked(row +'_' + col)"
                         [ngSwitch]="getStatus(row + '_'+col)" style="margin-left:2%">
@@ -36,11 +36,11 @@
 
             <!-- Action buttons stolen from rajat barman -->
             <div class="buttonBar mt-5">
-                <button (click)="clearSelected()" [disabled]="selected.length === 0"
-                    class="btn btn-default btn-sm">Clear</button>
+                <button (click)="handleGoBack()" class="btn btn-default mr-8">Go Back</button>
                 <!-- <button (click)="showSelected()" [disabled]="selected.length === 0" class="btn btn-success btn-sm">Buy Tickets</button> -->
                 <button (click)="showSelected()" [disabled]="selected.length === 0" type="button"
-                    class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal">Confirm Tickets</button>
+                    class="btn btn-primary bg-text_on_primary text-white" data-toggle="modal"
+                    data-target="#myModal">Confirm Tickets</button>
             </div>
             <div class="modal fade" id="myModal" role="dialog">
                 <div class="modal-dialog">
