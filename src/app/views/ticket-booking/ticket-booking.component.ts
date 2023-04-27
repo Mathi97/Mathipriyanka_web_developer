@@ -6,7 +6,6 @@ import { APIService } from 'app/services/api.service';
 import { DataService } from 'app/services/data.service';
 import { TICKET_BOOKING } from 'app/configs/interface';
 
-
 @Component({
   selector: 'app-ticket-booking',
   templateUrl: './ticket-booking.component.html',

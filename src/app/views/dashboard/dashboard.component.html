@@ -1,7 +1,3 @@
-<!-- <app-movie-cards [movieDetails]="movieDetails" [theatreDetails]="theatreDetails" [weekDays]="weekDays"
-    [selectedDate]="selectedDate" (handleSelectedDateEvent)="handleSelectedDate($event)"
-    (handleBookTicketEvent)="handleBookTicket($event)"></app-movie-cards> -->
-
 <div class="contain">
     <app-tab-section [languages]="languages" [selectedLang]="selectedLang"
         (handleSelectLangEvent)="handleSelectLang($event)"></app-tab-section>
@@ -12,14 +8,11 @@
 </div>
 
 <app-ui-popup [expand]="true" *ngIf="showPopup" (closeEvent)="showPopup=false">
-    <!-- <app-tab-section [languages]="languages" [selectedLang]="selectedLang" [height]="'50%'"
-        (handleSelectLangEvent)="handleSelectLangPopup($event)"></app-tab-section> -->
     <div class="movie flex flex-[0_0_100%] max-w-[100%] p-4 h-[100%]">
         <div class=" flex-[0_0_40%]">
             <img class="banner w-[100%] rounded-lg h-[100%]" src="{{selectedMovie?.thumbnail_url}}" alt="">
             <figure>
                 <img class="w-[100%] rounded-lg h-[100%]" src="{{selectedMovie?.thumbnail_url}}" alt="">
-
             </figure>
         </div>
         <div class="movie-details flex-[0_0_60%] pl-5 relative overflow-hidden">
@@ -60,9 +53,7 @@
                             <a class="block text-sm font-light underline-offset-4 text-white"
                                 href="{{theatre?.website}}">More
                                 Info</a>
-
                             <app-tooltip [data]="theatre" [availableSeats]="theatre?.seat_availability"></app-tooltip>
-
                         </div>
                     </ng-container>
                 </div>

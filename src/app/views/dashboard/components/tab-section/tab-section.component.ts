@@ -16,7 +16,6 @@ export class TabSectionComponent {
   @Output() public handleSelectedDateEvent = new EventEmitter<any>();
   @Output() public handleSelectLangEvent = new EventEmitter<any>();
 
-
   public handleTab = (tabData: any) => this.handleSelectedDateEvent.emit(tabData);
 
   public selectLang = (lang: string) => this.handleSelectLangEvent.emit(lang);

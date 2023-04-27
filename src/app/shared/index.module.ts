@@ -1,9 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RemoveUnderscorePipe } from './underscore.pipe';
-
-
-
 @NgModule({
     declarations: [
         RemoveUnderscorePipe

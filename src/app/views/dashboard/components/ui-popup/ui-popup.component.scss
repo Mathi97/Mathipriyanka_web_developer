@@ -1,6 +1,5 @@
 @import "src/styles/_mixins.scss";
 @import "src/styles/_variables.scss";
-// @import "src/styles/_fonts.scss";
 
 .popup {
     @include display-flex(flex);
@@ -26,10 +25,6 @@
         z-index: 9999;
     }
 
-    &-close-mobile {
-        display: none;
-    }
-
     &-content {
         background-color: white;
         border-radius: 10px;
@@ -52,15 +47,6 @@
         transform: translate3d(0, 0, 0);
         opacity: 1;
     }
-}
-
-
-.small {
-    max-width: 450px;
-}
-
-.medium {
-    max-width: 560px;
 }
 
 .expand {

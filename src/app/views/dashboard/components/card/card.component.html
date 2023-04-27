@@ -3,8 +3,8 @@
         <div class="movie__card" *ngFor="let list of movieDetails">
             <img src={{list?.thumbnail_url}} alt="">
             <h5 class="card__title text-center text-text_on_primary">{{list?.movie_name }}</h5>
-            <button class=" text-white bg-text_on_primary pt-1 pb-1 rounded-lg" (click)="handleSelectMovie(list)">Book
-                Now</button>
+            <button class=" text-white bg-text_on_primary pt-1 pb-1 rounded-lg" (click)="handleSelectMovie(list)">
+                Book Now</button>
         </div>
     </div>
 </ng-container>

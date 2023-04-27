@@ -4,13 +4,8 @@ import * as moment from 'moment';
 import { API_END_POINTS } from 'app/configs/end_points';
 import { APIService } from 'app/services/api.service';
 import { THEATRE_MOVIE_INFO } from 'app/configs/interface';
-import { LANGUAGES, RESPONSE } from 'app/configs/constants';
+import { LANGUAGES } from 'app/configs/constants';
 import { DataService } from 'app/services/data.service';
-
-
-
-
-
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -50,9 +45,6 @@ export class DashboardComponent implements OnInit {
         this.handleMovies(res?.movies);
         this.movieList = res?.movies
         this.movieDetails = res?.movies;
-
-        console.log(res, 'rrrrrrrrrrrr', this.languages);
-
         this.handleSeatsAvailability();
       } catch (error) {
         this.movieDetails = [];
@@ -61,32 +53,9 @@ export class DashboardComponent implements OnInit {
   }
 
   private handleSeatsAvailability = () => {
-    // this.theatreDetails.map(el => {
-    //   el?.booked_seats?.length > 0 && (el?.booked_seats.map((ele: any) => {
-    //     el?.available_movies.map((e: any) => {
-    //       el[e].map((elem: any) => {
-    //         if (ele?.date === this.dateInfo.date && elem?.timings === ele?.show_time) {
-    //           console.log(this.dateInfo,
-
-    //             'dateInfo', ele, 'sadfsd', JSON.parse(ele?.show1_booked_seats));
-    //           // el['seat_availability'] = {
-    //           //   booked_seats: JSON.parse(ele?.show1_booked_seats),
-    //           //   available_seats: 100 - JSON.parse(ele?.show1_booked_seats)?.length
-    //           // }
-    //           ele['available_seats'] = 100 - JSON.parse(ele?.show1_booked_seats)?.length
-    //         }
-    //       })
-    //     })
-    //   }))
-    // })
-
-
     this.theatreDetails.map(el => {
-
       el?.booked_seats?.length > 0 && el?.booked_seats.map((ele: any) => {
-        // const allotedTiming = Object.keys(elm).filter(ele => ele?.includes('time'));
         if (this._dataService.dateInfo?.date === ele?.date) {
-
         }
       })
     })
@@ -154,7 +123,6 @@ export class DashboardComponent implements OnInit {
   }
 
   public handleBookTicket = (slotDetails: any, theatreDetails: any, movieDetails: any, selectedDate: any) => {
-    // const { slotDetails, theatreDetails, movieDetails, selectedDate } = data;
     this._dataService.selectedSlot = { slotDetails, theatreDetails, movieDetails, selectedDate };
     this._router.navigate(['/ticket-booking'], { queryParams: { movie: slotDetails?.movie } });
   }
@@ -173,9 +141,7 @@ export class DashboardComponent implements OnInit {
 
 
   public handleSelectMovie = (movieDetais: any) => {
-    console.log(movieDetais, 'movieDetais');
     this.selectedMovie = movieDetais;
     this.showPopup = true;
-    // this._router.navigate(['/ticket-booking'], { queryParams: { movie: movieDetais } });
   }
 }
