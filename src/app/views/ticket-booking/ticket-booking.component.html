@@ -1,66 +1,72 @@
 <div class="booking">
     <div class="booking__wrapper">
-        <main class="innerContainer">
-
-
-
-            <div class="screen flex items-center">
-                <!-- <h1 class="text-6xl text-white">{{_dataService.selectedSlot.movieDetails.movie_name }}</h1> -->
-                <img class="w-[200px]" [src]="_dataService.selectedSlot.movieDetails.thumbnail_url" alt="">
-            </div>
-            <p class="text-sm font-semibold">SCREEN THIS WAY</p>
-
-
-            <div class="legend">
-                <span class="pr-3 font-semibold"><i class="fa-regular fa-circle fa-xl pr-2"></i>Available</span>
-                <span class="pr-3 font-semibold"><i class="fa-solid fa-circle-half-stroke fa-xl pr-2"></i>Reserved
-                </span>
-                <span class="pr-3 font-semibold"><i class="fa-solid fa-circle fa-xl pr-2"></i>Selected</span>
-            </div>
-
-
-            <div class="test">
-                <!-- Generate the seating grid -->
-                <div *ngFor="let row of rows" style="margin-top:15px">
-                    <span class="font-semibold text-text_on_primary text-xl">{{row}}</span>
-                    <span class="pr-[3px] " *ngFor="let col of cols;let i=index" (click)="seatClicked(row +'_' + col)"
-                        [ngSwitch]="getStatus(row + '_'+col)" style="margin-left:2%">
-                        <span *ngSwitchCase="'selected'" class="glyphicon glyphicon-ok-sign "> <i
-                                class="fa-solid fa-circle"></i></span>
-                        <span *ngSwitchCase="'reserved'" class="glyphicon glyphicon-ban-circle "><i
-                                class="fa-solid fa-circle-half-stroke"></i> </span>
-                        <span *ngSwitchDefault> <i class="fa-regular fa-circle"></i></span>
+        <main class="innerContainer flex flex[0_0_100%] max-w-[100%] h-[100vh]">
+            <div
+                class="screen flex items-center flex-[0_0_40%] max-w-[40%] flex-col  sticky top-0 left-0 bg-[#003c6612]">
+                <div class="flex-[0_0_70%] max-w-[70%] w-[100%] h-[100%]">
+                    <img class="w-[100%] h-[100%]" [src]="_dataService.selectedSlot.movieDetails.thumbnail_url" alt="">
+                </div>
+                <div class="flex justify-center h-[100%] items-center w-[50%] text-center break-all">
+                    <span class=" text-text_on_primary text-3xl"> Selected Seats:
+                        <ng-container *ngFor="let select of selected"><span class=" text-sm">{{select |
+                                removeUnderscore}},</span></ng-container>
                     </span>
                 </div>
             </div>
+            <div class="flex-[0_0_60%] max-w-[60%]">
+                <p class=" screen-theatre text-sm font-semibold">SCREEN THIS WAY</p>
 
-            <!-- Action buttons stolen from rajat barman -->
-            <div class="buttonBar mt-5">
-                <button (click)="handleGoBack()" class="btn btn-default mr-8">Go Back</button>
-                <!-- <button (click)="showSelected()" [disabled]="selected.length === 0" class="btn btn-success btn-sm">Buy Tickets</button> -->
-                <button (click)="showSelected()" [disabled]="selected.length === 0" type="button"
-                    class="btn btn-primary bg-text_on_primary text-white" data-toggle="modal"
-                    data-target="#myModal">Confirm Tickets</button>
-            </div>
-            <div class="modal fade" id="myModal" role="dialog">
-                <div class="modal-dialog">
 
-                    <!-- Modal content-->
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
-                            <h4 class="modal-title">Booking Status</h4>
-                        </div>
-                        <div class="modal-body">
-                            {{bookingStatus}}
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                            <!-- <button type="button" class="btn btn-success" data-dismiss="modal">PAY</button> -->
+                <div class="legend">
+                    <span class="pr-3 font-semibold"><i class="fa-regular fa-circle fa-xl pr-2"></i>Available</span>
+                    <span class="pr-3 font-semibold"><i class="fa-solid fa-circle-half-stroke fa-xl pr-2"></i>Reserved
+                    </span>
+                    <!-- <i class="fa-solid fa-couch"></i> -->
+                    <span class="pr-3 font-semibold"><i class="fa-solid fa-circle fa-xl pr-2"></i>Selected</span>
+                </div>
 
-                        </div>
+
+                <div class="test">
+                    <div *ngFor="let row of rows;let i = index" style="margin-top:40px">
+                        <span class="seat font-semibold text-text_on_primary text-xl">{{row}}</span>
+
+                        <span class="pr-[3px] relative" *ngFor="let col of cols;let i=index"
+                            (click)="seatClicked(row +'_' + col)" [ngSwitch]="getStatus(row + '_'+col)"
+                            style="margin-left:5%">
+                            <span *ngSwitchCase="'selected'" class="glyphicon glyphicon-ok-sign "> <i
+                                    class="fa-solid fa-circle"></i></span>
+                            <span *ngSwitchCase="'reserved'" class="glyphicon glyphicon-ban-circle "><i
+                                    class="fa-solid fa-circle-half-stroke"></i> </span>
+                            <span *ngSwitchDefault> <i class="fa-regular fa-circle"></i></span>
+                            <samp
+                                class="seat-col text-[10px] absolute bottom-[-12px] left-[5px] text-text_on_primary font-medium">{{i+1}}</samp>
+                        </span>
+
                     </div>
+                </div>
 
+                <div class="buttonBar mt-5">
+                    <button (click)="handleGoBack()" class="btn btn-default mr-8">Go Back</button>
+                    <button (click)="showSelected()" [disabled]="selected.length === 0" type="button"
+                        class="btn btn-primary bg-text_on_primary text-white" data-toggle="modal"
+                        data-target="#myModal">Confirm Tickets</button>
+                </div>
+                <div class="modal fade" id="myModal" role="dialog">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title">Booking Status</h4>
+                            </div>
+                            <div class="modal-body">
+                                {{bookingStatus}}
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
             </div>
         </main>

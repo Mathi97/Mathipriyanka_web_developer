@@ -1,4 +1,21 @@
 .active {
+    // color: white;
+    background: -webkit-linear-gradient(#f7f7f7, #025465);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    border-bottom: 3px solid whitesmoke;
+
+}
+
+.active-tab {
     color: #155270;
-    border-bottom: 2px solid #155270;
+    border-bottom: 3px solid #155270;
+}
+
+.tab {
+    padding: 20px;
+    background: black;
+    height: 20vh;
+    background-image: url('../../../../../assets/images/movie-background-collage.jpg');
+    background-size: cover;
 }

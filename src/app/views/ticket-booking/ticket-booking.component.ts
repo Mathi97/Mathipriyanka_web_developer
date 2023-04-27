@@ -68,6 +68,8 @@ export class TicketBookingComponent implements OnInit {
       if (this.reserved.indexOf(seatPos) === -1)
         this.selected.push(seatPos);
     }
+    console.log(this.selected, 'reserved');
+
   }
 
   public showSelected = () => {

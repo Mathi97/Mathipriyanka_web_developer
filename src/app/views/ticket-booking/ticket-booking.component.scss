@@ -43,13 +43,21 @@
     padding-left: 15px;
 }
 
+.screen-theatre {
+    border-bottom: 3px solid black;
+    padding: 6px 20px;
+    margin: 15px 50px;
+    box-shadow: 0px 6px 6px black;
+
+}
+
 .screen {
     // width: -webkit-fill-available;
-    background: rgb(2, 0, 36);
-    background: linear-gradient(90deg, rgba(2, 0, 36, 1) 33%, rgba(105, 105, 121, 0.8575805322128851) 76%, rgba(3, 78, 93, 0.6082808123249299) 86%, rgba(3, 78, 93, 0.6082808123249299) 94%);
-    border-radius: 15px;
-    margin: -5px 50px 10px;
-    box-shadow: 0px 3px 6px black;
+    // background: rgb(2, 0, 36);
+    // background: linear-gradient(90deg, rgba(2, 0, 36, 1) 33%, rgba(105, 105, 121, 0.8575805322128851) 76%, rgba(3, 78, 93, 0.6082808123249299) 86%, rgba(3, 78, 93, 0.6082808123249299) 94%);
+    // border-radius: 15px;
+    // margin: -5px 50px 10px;
+    // box-shadow: 0px 3px 6px black;
 
     img {
         margin: 0 auto;
@@ -82,4 +90,15 @@
         // background: rgb(2, 0, 36);
         // background: linear-gradient(90deg, rgba(2, 0, 36, 1) 33%, rgba(105, 105, 121, 0.8575805322128851) 76%, rgba(3, 78, 93, 0.6082808123249299) 86%, rgba(3, 78, 93, 0.6082808123249299) 94%);
     }
+}
+
+.seat {
+    border: 1px solid #053659;
+    min-width: 20px;
+    min-height: 20px;
+    padding: 5px 10px;
+    background: #053659;
+    text-align: center;
+    color: white;
+    border-radius: 6px;
 }

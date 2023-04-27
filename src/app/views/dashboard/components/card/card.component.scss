@@ -1,0 +1,44 @@
+@import 'src/styles/mixins';
+@import 'src/styles/variables';
+
+.movie {
+    @include display-flex(flex);
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    &__card {
+        background-color: whitesmoke;
+        margin: 20px;
+        padding: 20px;
+        border-radius: 10px;
+        @include width-height(320px, 400px);
+        min-width: 320px;
+        transition: transform .2s ease, box-shadow .2s ease, -webkit-transform .2s ease;
+        box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+        @include display-flex(flex);
+        @include justify-content(space-around);
+        @include flex-direction(column);
+
+        img {
+            @include width-height(220px, 300px);
+            margin: 0 auto;
+            min-height: 300px;
+            transition: transform .2s ease, box-shadow .2s ease, -webkit-transform .2s ease;
+        }
+
+        h5 {
+            margin: 10px 0;
+        }
+
+        &:hover {
+            box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.05);
+            transform: translate3d(0, -4px, 0);
+
+            img {
+                transform: translateY(-30px);
+                box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+            }
+        }
+    }
+
+}

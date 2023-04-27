@@ -1,0 +1,122 @@
+@import 'src/styles/mixins';
+
+.dashboard {
+    background: lightgray;
+    // height: 100vh;
+    padding: 30px;
+}
+
+.contain {
+    height: 100vh;
+    //     position: relative;
+    //     @include width-height(100%, 100vh);
+
+    //     .dashboard {
+    //         // <img src="assets/images/banner.jpg" alt="">
+    //         background: center / cover no-repeat url("../../../assets/images/banner.jpg");
+    //         filter: blur(5px) brightness(0.3);
+    //         @include position(fixed, 0, null, null, 0);
+    //         @include width-height(100%, 100%);
+    //     }
+}
+
+.movie-cards {
+    position: relative;
+    @include width-height(100%, 100vh);
+
+    &__bg {
+        filter: blur(5px) brightness(0.3);
+        @include position(fixed, 0, null, null, 0);
+        @include width-height(100%, 100%);
+        background: center / cover no-repeat url("https://img1.hotstarext.com/image/upload/f_auto,t_web_m_1x/sources/r1/cms/prod/540/1280540-h-b9e3ced39d3b");
+    }
+
+    &__info {
+        @include width-height(calc(100vw - 150px), calc(100vh - 150px));
+        border-radius: 10px;
+        background: center / cover no-repeat url("https://img1.hotstarext.com/image/upload/f_auto,t_web_m_1x/sources/r1/cms/prod/540/1280540-h-b9e3ced39d3b");
+        z-index: 9;
+    }
+
+    a {
+        background: -webkit-linear-gradient(#f7f7f7, #025465);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+
+        &:hover {
+            -webkit-text-fill-color: #508893 !important;
+            text-decoration-thickness: from-font;
+        }
+    }
+
+    &__tags {
+        padding: 0 !important;
+
+        .splitter {
+            padding: 0 10px;
+        }
+    }
+
+    .theatre {
+        background: url(https://fontawesome.com/icons/star?f=classic&s=solid&sz=2xs&pc=%23075d6e);
+    }
+}
+
+samp {
+    background: -webkit-linear-gradient(#f7f7f7, #025465);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#img {
+    --m:
+        radial-gradient(circle farthest-side at right, #000 99%, #0000) 0 100%/46% 92% no-repeat,
+        radial-gradient(circle farthest-side at left, #000 99%, #0000) 100% 0/46% 92% no-repeat;
+    -webkit-mask: var(--m);
+    mask: var(--m);
+    filter: grayscale(.5);
+    transition: .3s linear;
+    cursor: pointer;
+}
+
+#img:hover {
+    -webkit-mask-position: 7.5% 50%, 92.5% 50%;
+    mask-position: 7.5% 50%, 92.5% 50%;
+    filter: grayscale(0);
+}
+
+.show-time {
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    opacity: .8;
+
+    &:hover {
+        opacity: 1;
+    }
+}
+
+.movie {
+    background: #003c6612;
+    border-radius: 8px;
+}
+
+.banner {
+    filter: blur(6px);
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+figure {
+    background-color: rgba(0, 0, 0, 0.4);
+    color: white;
+    font-weight: bold;
+    border: 3px solid #ffffff;
+    position: absolute;
+    top: 50%;
+    left: 20%;
+    transform: translate(-40%, -50%);
+    /* width: 80%; */
+    padding: 20px;
+    text-align: center;
+}

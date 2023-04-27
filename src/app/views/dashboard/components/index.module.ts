@@ -10,17 +10,20 @@ import { NgbCarouselConfig, NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap
 import { MdbCheckboxModule } from 'mdb-angular-ui-kit/checkbox';
 import { SharedModule } from 'app/shared/index.module';
 import { TooltipComponent } from 'app/shared/tooltip/tooltip.component';
+import { CardComponent } from './card/card.component';
+import { PopupComponent } from './ui-popup/ui-popup.component';
+
 
 
 
 @NgModule({
-    declarations: [MovieCardsComponent, TabSectionComponent, TooltipComponent],
+    declarations: [MovieCardsComponent, TabSectionComponent, TooltipComponent, CardComponent, PopupComponent],
     imports: [
         CommonModule, NgbModule, BrowserModule,
         NgbCarouselModule, NgIf, MdbCheckboxModule,
         SharedModule
     ],
-    exports: [MovieCardsComponent, TabSectionComponent, TooltipComponent],
+    exports: [MovieCardsComponent, TabSectionComponent, TooltipComponent, CardComponent, PopupComponent],
     schemas: [CUSTOM_ELEMENTS_SCHEMA],
 
     bootstrap: [MovieCardsComponent]

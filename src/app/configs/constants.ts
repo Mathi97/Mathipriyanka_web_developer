@@ -1,7 +1,7 @@
 export const THEATRE_ROWS = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'];
 export const THEATRE_COLS = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 export const EMAIL_ID = 'mathi19ab@gmail.com';
-
+export const LANGUAGES = ['All', 'Tamil', 'Kannada', 'Telugu', 'Hindi', 'English', 'Καντάρα', 'Malayalam'];
 export const RESPONSE = {
 
     "theatre": [

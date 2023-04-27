@@ -1,6 +1,7 @@
 .card {
     clip-path: circle(5% at 94% 8%);
     transition: all ease-in-out .3s;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
 
     &:hover,
     &:focus {

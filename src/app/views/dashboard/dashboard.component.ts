@@ -4,8 +4,9 @@ import * as moment from 'moment';
 import { API_END_POINTS } from 'app/configs/end_points';
 import { APIService } from 'app/services/api.service';
 import { THEATRE_MOVIE_INFO } from 'app/configs/interface';
-import { RESPONSE } from 'app/configs/constants';
+import { LANGUAGES, RESPONSE } from 'app/configs/constants';
 import { DataService } from 'app/services/data.service';
+
 
 
 
@@ -16,6 +17,7 @@ import { DataService } from 'app/services/data.service';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
+  private movieList: Array<any> = [];
   public movieDetails: Array<any> = [];
   public theatreDetails: Array<any> = [];
   public weekDays: Array<any> = [];
@@ -24,7 +26,11 @@ export class DashboardComponent implements OnInit {
   private showDetails: any = {
     show1: [], show2: [], show3: [], show4: []
   };
+  public languages: Array<any> = LANGUAGES;
   public dateInfo: any;
+  public selectedLang: string = 'All';
+  public selectedMovie: any = {};
+  public showPopup: boolean = false;
 
   constructor(private _apiService: APIService, private _router: Router, private _dataService: DataService) { }
 
@@ -42,7 +48,11 @@ export class DashboardComponent implements OnInit {
       try {
         this.handleTheatres(res?.theatre);
         this.handleMovies(res?.movies);
+        this.movieList = res?.movies
         this.movieDetails = res?.movies;
+
+        console.log(res, 'rrrrrrrrrrrr', this.languages);
+
         this.handleSeatsAvailability();
       } catch (error) {
         this.movieDetails = [];
@@ -89,7 +99,7 @@ export class DashboardComponent implements OnInit {
     this.selectedDate = currentDay;
     var days = [];
     for (var i = 0; i <= 6; i++) {
-      days.push({ date: moment(currentDate).add(i, 'days').format("DD/MM/YYYY"), day: moment(currentDate).add(i, 'days').format("ddd") });
+      days.push({ date: moment(currentDate).add(i, 'days').format("DD/MM/YYYY"), day: moment(currentDate).add(i, 'days').format("dddd") });
     }
     this.weekDays = days;
   }
@@ -143,9 +153,29 @@ export class DashboardComponent implements OnInit {
     this._dataService.dateInfo = tabData;
   }
 
-  public handleBookTicket = (data: any) => {
-    const { slotDetails, theatreDetails, movieDetails, selectedDate } = data;
-    this._dataService.selectedSlot = data;
+  public handleBookTicket = (slotDetails: any, theatreDetails: any, movieDetails: any, selectedDate: any) => {
+    // const { slotDetails, theatreDetails, movieDetails, selectedDate } = data;
+    this._dataService.selectedSlot = { slotDetails, theatreDetails, movieDetails, selectedDate };
     this._router.navigate(['/ticket-booking'], { queryParams: { movie: slotDetails?.movie } });
+  }
+
+
+  public handleSelectLang = (lang: string) => {
+    this.selectedLang = lang;
+    this.movieDetails = lang === 'All' ? this.movieList : this.movieList.filter(el => el?.language.includes(lang));
+  }
+
+  public handleSelectLangPopup = (lang: string) => {
+    this.selectedLang = lang;
+    this.movieDetails = lang === 'All' ? this.movieList : this.movieList.filter(el => el?.language.includes(lang));
+  }
+
+
+
+  public handleSelectMovie = (movieDetais: any) => {
+    console.log(movieDetais, 'movieDetais');
+    this.selectedMovie = movieDetais;
+    this.showPopup = true;
+    // this._router.navigate(['/ticket-booking'], { queryParams: { movie: movieDetais } });
   }
 }

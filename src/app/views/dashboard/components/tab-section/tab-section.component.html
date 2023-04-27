@@ -1,9 +1,19 @@
-<ul class="flex justify-between items-center pl-0 border-b-[1px] border-[#d3d3d329]">
-    <li *ngFor="let tab of weekDays"
-        class="text-center leading-4 font-semibold cursor-pointer uppercase hover:opacity-50 pb-2"
-        [ngClass]="{'active':tab?.day===selectedDate}" (click)="handleTab(tab)">
-        {{tab?.day}}
-        <!-- <p class="text-xs font-normal "> {{tab?.day}}</p> -->
-
-    </li>
-</ul>
+<ng-container *ngIf="date;else lang">
+    <ul class="flex justify-between items-center pl-0 border-b-[1px] border-[#155270]">
+        <li *ngFor="let tab of weekDays"
+            class="text-center leading-4 font-semibold cursor-pointer uppercase hover:opacity-50 pb-2 text-text_on_primary"
+            [ngClass]="{'active-tab ':tab?.day===selectedDate}" (click)="handleTab(tab)">
+            {{tab?.day}}
+        </li>
+    </ul>
+</ng-container>
+<ng-template #lang>
+    <div class="tab relative" [ngStyle]="{'height':height&&height}">
+        <ul class=" flex max-w-[55%] justify-between h-[100%] items-end">
+            <li *ngFor="let lang of languages" class=" text-white pb-[2px] text-xl font-bold cursor-pointer"
+                [ngClass]="{'active':lang===selectedLang}" (click)="selectLang(lang)">
+                <span> {{lang}}</span>
+            </li>
+        </ul>
+    </div>
+</ng-template>

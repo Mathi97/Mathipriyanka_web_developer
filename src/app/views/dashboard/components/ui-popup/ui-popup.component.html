@@ -1,0 +1,9 @@
+<div class="popup">
+    <div class="popup-content" [ngClass]="{'small': small, 'medium': medium, 'expand': expand}"
+        (click)="popupContent($event)">
+        <div class="popup-close" *ngIf="!hideClose" (click)="closePopup()"><img src="assets/images/close-popup.svg"
+                alt="close"></div>
+        <div class="popup-close-mobile" (click)="closePopup()"></div>
+        <ng-content></ng-content>
+    </div>
+</div>
